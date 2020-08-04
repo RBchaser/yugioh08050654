@@ -1,0 +1,21 @@
+<h1>カテゴリ別</h1>
+<h1>Monsters</h1>
+<% @statuses.each do|status|%>
+  <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading"><%= status.name%>
+        <p><%= status.star.name%></p>
+          <div class="buttons">
+            <a href="/statuses/<%= status.id%>" data-method="delete"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+            <a href="/statuses/<%= status.id%>/edit"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+          </div>
+        </div>
+        <div class="panel-body">
+          ATK:<%= status.attack%><br>
+          DFC:<%= status.defence%><br>
+          <p>GAP:<%= status.attack-status.defence%></p>
+        </div>
+      </div>
+  </div>
+<%end%>
+

@@ -1,0 +1,46 @@
+<h1>New Monster</h1>
+<%= form_tag("/create") do %>
+<div class="form-group">
+    <label for="name">Name</label>
+    <%= text_field :monster, :name  ,class:"form-control" ,id:"name" ,placeholder:"青眼の白龍"%>
+</div>
+
+<div class="form-group">
+    <label for="attack">Attack</label>    
+    <%= text_field :monster, :attack ,class:"form-control" ,id:"attack" ,placeholder:"3000"%>
+</div>    
+    
+<div class="form-group">
+    <label for="defence">Defence</label>    
+    <%= text_field :monster, :defence  ,class:"form-control" ,id:"defence" ,placeholder:"2500"%>
+</div>
+
+<div class="form-group">
+    <label for="star">Star</label>
+    <%=select_tag 'monster[star_id]',options_from_collection_for_select(@stars, :id, :name),class:"form-control" ,id:"star"%>
+</div>
+    <%= submit_tag "作成",class:"btn btn-primary"%>
+<% end%>
+
+<hr>
+
+<h1>Monsters</h1>
+<% @statuses.each do|status|%>
+  <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading"><%= status.name%>
+        <p><%= status.star.name%></p>
+          <div class="buttons">
+            <a href="/statuses/<%= status.id%>" data-method="delete"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+            <a href="/statuses/<%= status.id%>/edit"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+          </div>
+        </div>
+        <div class="panel-body">
+          ATK:<%= status.attack%><br>
+          DFC:<%= status.defence%><br>
+          <p>TTL:<%= status.attack+status.defence%></p>
+        </div>
+      </div>
+  </div>
+<%end%>
+
