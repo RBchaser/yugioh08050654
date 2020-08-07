@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get"/statuses/:id/edit",to:"statuses#edit"
   patch"/statuses/:id",to:"statuses#update"
   get"/stars/:id",to:"stars#show"
+  get"/totals/:id",to:"totals#show_total"
 end

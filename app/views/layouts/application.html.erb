@@ -28,13 +28,23 @@
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#">Link</a></li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Stars <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <% @stars.each do|star|%>
                 <li><a href="/stars/<%= star.id%>"><%= star.name%></a></li>
               <% end%>
             </ul>
           </li>
+          
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Total <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <% @totals.each do|total|%>
+                <li><a href="/totals/<%= total.id%>"><%= total.score%></a></li>
+              <% end%>
+            </ul>
+          </li>
+          
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
