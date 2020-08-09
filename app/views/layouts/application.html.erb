@@ -21,10 +21,10 @@
         </button>
         <a class="navbar-brand" href="/">Yugioh!</a>
       </div>
-  
+
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        
+
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#">Link</a></li>
           <li class="dropdown">
@@ -35,24 +35,27 @@
               <% end%>
             </ul>
           </li>
-          
+
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Total <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <% @totals.each do|total|%>
-                <li><a href="/totals/<%= total.id%>"><%= total.score%></a></li>
-              <% end%>
+              <li><a href="/?ttl_min=0&ttl_max=999">0〜999</a></li>
+              <li><a href="/?ttl_min=1000&ttl_max=1999">1000〜1999</a></li>
+              <li><a href="/?ttl_min=2000&ttl_max=2999">2000〜2999</a></li>
+              <li><a href="/?ttl_min=3000&ttl_max=3999">3000〜3999</a></li>
+              <li><a href="/?ttl_min=4000&ttl_max=4999">4000〜4999</a></li>
+              <li><a href="/?ttl_min=5000&ttl_max=5999">5000〜5999</a></li>
             </ul>
           </li>
         </ul>
-        
-        <%= form_tag("/search", method: "get") do %>
+
+        <%= form_tag("/", method: "get") do %>
           <%= label_tag(:ttl_min, "MIN:") %>
-          <%= text_field_tag(:ttl_min) %>
-          
+          <%= text_field_tag(:ttl_min, params[:ttl_min]) %>
+
           <%= label_tag(:ttl_max, "MAX:") %>
-          <%= text_field_tag(:ttl_max) %>
-          
+          <%= text_field_tag(:ttl_max, params[:ttl_max]) %>
+
           <%= submit_tag("Search") %>
         <% end %>
 
