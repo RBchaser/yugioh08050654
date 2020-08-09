@@ -2,7 +2,6 @@ class StatusesController < ApplicationController
     def index
         @statuses=Status.all
         @stars=Star.all
-        
     end
     
     def create

@@ -44,8 +44,18 @@
               <% end%>
             </ul>
           </li>
-          
         </ul>
+        
+        <%= form_tag("/search", method: "get") do %>
+          <%= label_tag(:ttl_min, "MIN:") %>
+          <%= text_field_tag(:ttl_min) %>
+          
+          <%= label_tag(:ttl_max, "MAX:") %>
+          <%= text_field_tag(:ttl_max) %>
+          
+          <%= submit_tag("Search") %>
+        <% end %>
+
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
